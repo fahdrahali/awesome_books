@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/fahdrahali/awesome_books/issues"
   },
-  "homepage": "https://github.com/fahdrahali/awesome_books#readme"
+  "homepage": "https://github.com/fahdrahali/awesome_books#readme",
+  "devDependencies": {
+    "hint": "^7.1.13"
+  }
 }
