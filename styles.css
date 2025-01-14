@@ -4,3 +4,40 @@
   margin: 0;
   border: 0;
 }
+
+ul {
+  list-style: none;
+}
+
+body h1 {
+  padding: 20px;
+}
+
+#form {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  gap: 20px;
+  align-items: start;
+  padding: 20px;
+}
+ #form input {
+  border: 1px solid rgb(198, 196, 196);
+  padding: 5px;
+ }
+
+ button {
+  border: 1px solid rgb(198, 196, 196);
+  padding: 5px;
+ }
+
+ section {
+  
+ }
+
+ ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+ }
