@@ -1,4 +1,4 @@
-const books = [
+let books = [
   { id: 1, title: "Ek Samandar, Mere Andar", author: "Sanjeev Joshi" },
   {
     id: 2,
@@ -11,12 +11,11 @@ const books = [
 const addBook = (author, title) => {
   const id = books.length + 1;
   books.push({ id: id, author: author, title });
-  displayBooks();
+  return books;
 };
 
 const removeBook = (id) => {
-  books.filter((book) => book.id !== id);
-  books = newBooks;
+  books = books.filter((book) => book.id !== id);
   return books;
 };
 
@@ -36,6 +35,14 @@ const displayBooks = () => {
 
     const button = document.createElement("button");
     button.textContent = "Remove";
+    button.id = "btn-remove";
+
+    button.addEventListener("click", () => {
+      document.getElementById("books").remove();
+      removeBook(book.id);
+      displayBooks();  
+    });
+
     const liButton = document.createElement("li");
     liButton.append(button);
     ul.append(liButton);
@@ -54,10 +61,10 @@ document.getElementById("btn-add").addEventListener("click", (event) => {
   const author = document.getElementById("author").value;
   document.getElementById("books").remove();
   addBook(title, author);
-  console.log(books);
+  displayBooks();
 });
 
+
 document.addEventListener("DOMContentLoaded", () => {
-  console.log(" onload body");
-  displayBooks();
+  displayBooks(books);
 });
