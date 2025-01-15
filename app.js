@@ -1,3 +1,5 @@
+import addBook from "./modules/book.js";
+
 let books = [
   { id: 1, title: "Ek Samandar, Mere Andar", author: "Sanjeev Joshi" },
   {
@@ -73,7 +75,7 @@ document.getElementById("btn-add").addEventListener("click", (event) => {
   document.getElementById("author").value = "";
   if (document.getElementById("books"))
     document.getElementById("books").remove();
-  addBook(title, author);
+  addBook(book);
   displayBooks();
 });
 
