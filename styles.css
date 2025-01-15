@@ -31,10 +31,6 @@ body h1 {
   padding: 5px;
  }
 
- section {
-  
- }
-
  ul {
   display: flex;
   flex-direction: column;
