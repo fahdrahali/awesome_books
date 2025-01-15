@@ -9,13 +9,22 @@ let books = [
 ];
 
 const addBook = (author, title) => {
-  const id = books.length + 1;
-  books.push({ id: id, author: author, title });
+  books = JSON.parse(localStorage.getItem("books"));
+  let id = books.length + 1;
+  if (!books) books.push({ id: id, author: author, title });
+  else {
+    books.map((book) => {
+      if (id === book.id) id = book.id + 1;
+    });
+    books.push({ id: id, author: author, title });
+  }
+  localStorage.setItem("books", JSON.stringify(books));
   return books;
 };
 
 const removeBook = (id) => {
   books = books.filter((book) => book.id !== id);
+  localStorage.setItem("books", JSON.stringify(books));
   return books;
 };
 
@@ -40,7 +49,7 @@ const displayBooks = () => {
     button.addEventListener("click", () => {
       document.getElementById("books").remove();
       removeBook(book.id);
-      displayBooks();  
+      displayBooks();
     });
 
     const liButton = document.createElement("li");
@@ -53,20 +62,20 @@ const displayBooks = () => {
 
     document.body.insertBefore(booksSection, document.getElementById("form"));
   });
+  localStorage.setItem("books", JSON.stringify(books));
 };
 
 document.getElementById("btn-add").addEventListener("click", (event) => {
   event.preventDefault();
   const title = document.getElementById("title").value;
   const author = document.getElementById("author").value;
-  document.getElementById("title").value = '';
-  document.getElementById("author").value = '';
-  if (document.getElementById("books")) 
-  document.getElementById("books").remove();
+  document.getElementById("title").value = "";
+  document.getElementById("author").value = "";
+  if (document.getElementById("books"))
+    document.getElementById("books").remove();
   addBook(title, author);
   displayBooks();
 });
-
 
 document.addEventListener("DOMContentLoaded", () => {
   displayBooks(books);
