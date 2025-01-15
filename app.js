@@ -59,6 +59,9 @@ document.getElementById("btn-add").addEventListener("click", (event) => {
   event.preventDefault();
   const title = document.getElementById("title").value;
   const author = document.getElementById("author").value;
+  document.getElementById("title").value = '';
+  document.getElementById("author").value = '';
+  if (document.getElementById("books")) 
   document.getElementById("books").remove();
   addBook(title, author);
   displayBooks();
