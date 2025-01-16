@@ -1,6 +1,8 @@
-import addBook from "./modules/book.js";
+import { Books } from "./modules/books.js";
 
-let books = [
+const books = new Books();
+
+books.books = [
   { id: 1, title: "Ek Samandar, Mere Andar", author: "Sanjeev Joshi" },
   {
     id: 2,
@@ -10,30 +12,12 @@ let books = [
   { id: 3, title: "Ambedkar: A Life", author: "Shashi Tharoor" },
 ];
 
-const addBook = (author, title) => {
-  books = JSON.parse(localStorage.getItem("books"));
-  let id = books.length + 1;
-  if (!books) books.push({ id: id, author: author, title });
-  else {
-    books.map((book) => {
-      if (id === book.id) id = book.id + 1;
-    });
-    books.push({ id: id, author: author, title });
-  }
-  localStorage.setItem("books", JSON.stringify(books));
-  return books;
-};
-
-const removeBook = (id) => {
-  books = books.filter((book) => book.id !== id);
-  localStorage.setItem("books", JSON.stringify(books));
-  return books;
-};
-
 const displayBooks = () => {
   const booksSection = document.createElement("section");
   booksSection.id = "books";
-  books.map((book) => {
+  console.log(books.books);
+  
+  books.books.map((book) => {
     const ul = document.createElement("ul");
 
     const liTitle = document.createElement("li");
@@ -50,7 +34,8 @@ const displayBooks = () => {
 
     button.addEventListener("click", () => {
       document.getElementById("books").remove();
-      removeBook(book.id);
+      books.books = books.removeBook(book.id);
+      localStorage.setItem("books", JSON.stringify(books.books));
       displayBooks();
     });
 
@@ -64,7 +49,7 @@ const displayBooks = () => {
 
     document.body.insertBefore(booksSection, document.getElementById("form"));
   });
-  localStorage.setItem("books", JSON.stringify(books));
+  localStorage.setItem("books", JSON.stringify(books.books));
 };
 
 document.getElementById("btn-add").addEventListener("click", (event) => {
@@ -75,10 +60,11 @@ document.getElementById("btn-add").addEventListener("click", (event) => {
   document.getElementById("author").value = "";
   if (document.getElementById("books"))
     document.getElementById("books").remove();
-  addBook(book);
+  books.books = books.addBook(title, author);
+  localStorage.setItem("books", JSON.stringify(books.books));
   displayBooks();
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  displayBooks(books);
+  displayBooks();
 });
