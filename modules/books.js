@@ -5,15 +5,15 @@ export class Books {
 
   addBook = (author, title) => {
     let books = JSON.parse(localStorage.getItem("books"));
-    
+
     let id = books.length + 1;
     if (!books) books.push({ id: id, author: author, title });
     else {
       books.map((book) => {
-        if (id === book.id) id = book.id + 1;
+        if (id === book.id) id++;
       });
       books.push({ id: id, author: author, title });
-    }    
+    }
     return books;
   };
 
