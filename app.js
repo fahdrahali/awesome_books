@@ -15,18 +15,17 @@ books.books = [
 const displayBooks = () => {
   const booksSection = document.createElement("section");
   booksSection.id = "books";
-  console.log(books.books);
+
+  const h1 = document.createElement('h1');
+  h1.textContent = 'All Awesome books';
+  booksSection.append(h1);
   
   books.books.map((book) => {
     const ul = document.createElement("ul");
 
     const liTitle = document.createElement("li");
-    liTitle.textContent = book.title;
+    liTitle.textContent = `"${book.title}" by  ` + book.author ;
     ul.append(liTitle);
-
-    const liAuthor = document.createElement("li");
-    liAuthor.textContent = book.author;
-    ul.append(liAuthor);
 
     const button = document.createElement("button");
     button.textContent = "Remove";
@@ -42,12 +41,9 @@ const displayBooks = () => {
     const liButton = document.createElement("li");
     liButton.append(button);
     ul.append(liButton);
-    const p = document.createElement("p");
-    p.textContent = "_____________________________________";
-    ul.append(p);
     booksSection.append(ul);
 
-    document.body.insertBefore(booksSection, document.getElementById("form"));
+    document.body.insertBefore(booksSection, document.querySelector(".add-book"));
   });
   localStorage.setItem("books", JSON.stringify(books.books));
 };
