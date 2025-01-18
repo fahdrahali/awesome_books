@@ -28,9 +28,10 @@ const displayBooks = (books) => {
       liButton.append(button);
       ul.append(liButton);
       booksSection.append(ul);
-  
-      document.body.insertBefore(booksSection, document.querySelector(".add-book"));
-    });
+
+     const container =  document.getElementById('container');
+      container.append(booksSection)
+      });
     localStorage.setItem("books", JSON.stringify(books.books));
   };
 

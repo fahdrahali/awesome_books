@@ -37,7 +37,7 @@ const createBookSection = () => {
   bookSection.append(h2);
   bookSection.append(form);
 
-    document.body.append(bookSection);
+  document.getElementById('container').append(bookSection);
 
     document.getElementById("btn-add").addEventListener("click", (event) => {
         event.preventDefault();

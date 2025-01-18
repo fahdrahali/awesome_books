@@ -24,7 +24,7 @@ const CreateNavBar = () => {
   header.append(logo);
   header.append(nav);
 
-  document.body.append(header);
+  document.getElementById('container').append(header);
 };
 
 export default CreateNavBar;

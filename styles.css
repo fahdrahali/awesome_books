@@ -13,18 +13,18 @@ ul {
 body {
   font-family: "Balsamiq Sans", serif;
   font-size: 16px;
+  height: 100hv;
 }
 
 body h1 {
   padding: 60px;
   align-self: center;
-  font-size: 58px;
-  margin-top: 40px;
+  font-size: 48px;
+  margin-top: 20px;
 }
 
 body h2 {
   font-size: 32px;
-
 }
 
 header {
@@ -35,9 +35,23 @@ header {
   margin: 10px 20px;
 }
 
-header span {
-  font-size: 32px;
-  padding: 10px 30px;
+#container {
+  min-height: 100vh;    
+  display: grid;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  margin: 40px 20px 10px;
+  padding: 10px 20px;
+}
+
+header span,
+footer span {
+  font-size: 24px;
+  padding: 0px 20px;
   border-radius: 8px;
 }
 
@@ -45,13 +59,13 @@ nav ul {
   display: flex;
   justify-content: end;
   gap: 40px;
-  padding: 40px;
+  padding: 20px;
 }
 
 nav a {
   text-decoration: none;
   color: #000;
-  font-size: 32px;
+  font-size: 22px;
 }
 
 #books {

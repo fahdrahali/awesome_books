@@ -1,6 +1,7 @@
 import createBookSection from "./modules/addBook.js";
 import { Books } from "./modules/books.js";
 import displayBooks from "./modules/displayBooks.js";
+import createFooter from "./modules/footer.js";
 import CreateNavBar from "./modules/navBar.js";
 
 const books = new Books();
@@ -17,6 +18,10 @@ books.books = [
 
 
 document.addEventListener("DOMContentLoaded", () => {
+  const container = document.createElement('section');
+  container.id = 'container';
+  document.body.append(container);
   CreateNavBar();
   displayBooks(books);
+  createFooter();
 });
