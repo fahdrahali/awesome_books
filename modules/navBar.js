@@ -6,7 +6,7 @@ const createItemLink = (ul, linkTitle) => {
   li.append(a);
   ul.append(li);
 };
-const CreateNavBar = () => {
+const createNavBar = () => {
   const header = document.createElement("header");
   const nav = document.createElement("nav");
   const logo = document.createElement("span");
@@ -27,4 +27,4 @@ const CreateNavBar = () => {
   document.getElementById('container').append(header);
 };
 
-export default CreateNavBar;
+export default createNavBar;

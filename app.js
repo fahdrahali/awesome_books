@@ -1,5 +1,6 @@
 import createBookSection from "./modules/addBook.js";
 import { Books } from "./modules/books.js";
+import createContactSection from "./modules/contact.js";
 import displayBooks from "./modules/displayBooks.js";
 import createFooter from "./modules/footer.js";
 import CreateNavBar from "./modules/navBar.js";
@@ -22,6 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
   container.id = 'container';
   document.body.append(container);
   CreateNavBar();
-  displayBooks(books);
+  createContactSection();
   createFooter();
 });

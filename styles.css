@@ -36,7 +36,7 @@ header {
 }
 
 #container {
-  min-height: 100vh;    
+  min-height: 100vh;
   display: grid;
 }
 
@@ -126,4 +126,17 @@ section ul:nth-of-type(n + 2) {
 
 ul li:nth-of-type(3) {
   justify-self: end;
+}
+
+#contact {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: 0 auto;
+  font-size: 20px;
+}
+
+#contact ul {
+  padding: 20px 40px;
+  list-style: outside;
 }
