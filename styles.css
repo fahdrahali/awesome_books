@@ -16,14 +16,42 @@ body {
 }
 
 body h1 {
-  padding: 50px;
+  padding: 60px;
   align-self: center;
-  font-size: 32px;
+  font-size: 58px;
+  margin-top: 40px;
 }
 
 body h2 {
   font-size: 32px;
 
+}
+
+header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  border: 1px solid black;
+  margin: 10px 20px;
+}
+
+header span {
+  font-size: 32px;
+  padding: 10px 30px;
+  border-radius: 8px;
+}
+
+nav ul {
+  display: flex;
+  justify-content: end;
+  gap: 40px;
+  padding: 40px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #000;
+  font-size: 32px;
 }
 
 #books {
@@ -73,7 +101,7 @@ section ul:nth-of-type(n + 2) {
   border-top: none;
 }
 
-ul {
+#books ul {
   display: grid;
   grid-template-columns: 11fr 1fr;
   width: 100%;
