@@ -32,7 +32,7 @@ const createContactSection = () => {
     section.append(p1);
     section.append(ul);
 
-    document.getElementById('container').append(section);
+    document.getElementById('container').insertBefore(section, document.getElementById('footer'));
 
 }
 

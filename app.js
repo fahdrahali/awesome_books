@@ -1,6 +1,4 @@
-import createBookSection from "./modules/addBook.js";
 import { Books } from "./modules/books.js";
-import createContactSection from "./modules/contact.js";
 import displayBooks from "./modules/displayBooks.js";
 import createFooter from "./modules/footer.js";
 import CreateNavBar from "./modules/navBar.js";
@@ -19,10 +17,11 @@ books.books = [
 
 
 document.addEventListener("DOMContentLoaded", () => {
+  localStorage.setItem('books', JSON.stringify(books.books));
   const container = document.createElement('section');
   container.id = 'container';
   document.body.append(container);
   CreateNavBar();
-  createContactSection();
+  displayBooks(books.books);
   createFooter();
 });

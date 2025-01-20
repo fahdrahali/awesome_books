@@ -15,8 +15,8 @@ const createBookSection = () => {
   bookSection.classList.add("add-book");
 
   // title add section
-  const h2 = document.createElement("h2");
-  h2.textContent = "Add a new book";
+  const h1 = document.createElement("h1");
+  h1.textContent = "Add a new book";
 
   //form add section
 
@@ -34,10 +34,10 @@ const createBookSection = () => {
   form.append(button);
 
   // add elements to book section
-  bookSection.append(h2);
+  bookSection.append(h1);
   bookSection.append(form);
 
-  document.getElementById('container').append(bookSection);
+  document.getElementById('container').insertBefore(bookSection, document.getElementById('footer'));
 
     document.getElementById("btn-add").addEventListener("click", (event) => {
         event.preventDefault();
